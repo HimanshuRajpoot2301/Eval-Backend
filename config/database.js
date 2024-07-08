@@ -1,15 +1,10 @@
 const{Sequelize}=require ('sequelize');
 const dotenv=require('dotenv');
 dotenv.config();
-const sequelize=new Sequelize(
-    {
-        
-        dialect:process.env.SQL_DIALECT,
-        host:process.env.SQL_HOST,
-        username:process.env.SQL_USER,
-        password:process.env.SQL_PASSWORD,
-        database:process.env.SQL_DB
-    }
-);
+const sequelize = new Sequelize(process.env.SQL_DB, process.env.SQL_USER, process.env.SQL_PASSWORD, {
+    host: process.env.SQL_HOST,
+    dialect: process.env.SQL_DIALECT,
+    port: 3306,
+  });
 
 module.exports=sequelize;
