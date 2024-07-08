@@ -1,23 +1,49 @@
-const {DataTypes}=require('sequelize');
-const sequelize=require('../config/database');
-const Customer=require('./customer');
-const Order=sequelize.define('Order',{
-    id:{
-        type:DataTypes.INTEGER,
-        primaryKey:true,
-        autoIncrement:true
+// const {DataTypes}=require('sequelize');
+// const sequelize=require('../config/database');
+// const Customer=require('./customer');
+// const Order=sequelize.define('Order',{
+//     id:{
+//         type:DataTypes.INTEGER,
+//         primaryKey:true,
+//         autoIncrement:true
+//     },
+//     customerId:{
+//         type:DataTypes.INTEGER,
+//         references:{
+//             model:Customer,
+//             key:'id'
+//         },
+//         allowNull:false
+//     },
+//     orderDate:{
+//         type:DataTypes.DATE,
+//         allowNull:false
+//     }
+// });
+// module.exports=Order;
+
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/database');
+const Customer = require('./customer');
+
+const Order = sequelize.define('Order', {
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
-    customerId:{
-        type:DataTypes.INTEGER,
-        references:{
-            model:Customer,
-            key:'id'
+    customerId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: Customer,
+            key: 'id'
         },
-        allowNull:false
+        allowNull: false
     },
-    orderDate:{
-        type:DataTypes.DATE,
-        allowNull:false
+    orderDate: {
+        type: DataTypes.DATE,
+        allowNull: false
     }
 });
-module.exports=Order;
+
+module.exports = Order;
